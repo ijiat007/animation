@@ -1,18 +1,18 @@
-const base = "/animation";
-
 export async function router(pathname) {
-  // base 제거
-  const cleanPath = pathname.replace(base, "") || "/";
+
+  // const cleanPath = pathname.replace("/animation", "") || "/";
+  let cleanPath = pathname; 
 
   let pageFile;
   switch (cleanPath) {
-    case "/":
+    case "/animation/":
+    case "/animation":
       pageFile = "home.html";
       break;
-    case "/about":
+    case "/animation/about":
       pageFile = "about.html";
       break;
-    case "/contact":
+    case "/animation/contact":
       pageFile = "contact.html";
       break;
     default:
@@ -21,7 +21,7 @@ export async function router(pathname) {
   }
 
   try {
-    const res = await fetch(`${base}/src/pages/${pageFile}`);
+    const res = await fetch(`${pageFile.startsWith('home') ? '/animation/src/pages/' + pageFile : '/animation/src/pages/' + pageFile}`);
     const html = await res.text();
     document.querySelector("#app").innerHTML = html;
   } catch (err) {
