@@ -1,20 +1,21 @@
-import { router } from "./router.js";
 import '../assets/styles.scss';
 
-// 최초 렌더링
-router(window.location.pathname);
+const app = document.querySelector("#app");
 
-// 네비게이션 이벤트
-document.addEventListener("click", (e) => {
-  if (e.target.matches("[data-link]")) {
-    e.preventDefault();
-    const href = e.target.getAttribute("href");
-    window.history.pushState({}, "", href);
-    router(href);
+// GitHub Pages 배포 시 base 포함 경로
+const BASE = "/animation";
+
+// home.html fetch 후 렌더링
+async function loadHome() {
+  try {
+    const res = await fetch(`${BASE}/src/pages/home.html`);
+    const html = await res.text();
+    app.innerHTML = html;
+  } catch (err) {
+    console.error("Failed to load home.html:", err);
+    app.innerHTML = "<h1>Failed to load page</h1>";
   }
-});
+}
 
-// 브라우저 뒤/앞 이동 대응
-window.addEventListener("popstate", () => {
-  router(window.location.pathname);
-});
+// 초기 페이지 로드
+loadHome();
