@@ -2,7 +2,7 @@
 import header from "../components/header.html?raw";
 import footer from "../components/footer.html?raw";
 import { router } from "./router.js";
-import '../assets/styles.scss'
+// import '../assets/styles.scss'
 
 
 // layout
