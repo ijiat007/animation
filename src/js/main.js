@@ -1,5 +1,5 @@
 import { router } from "./router.js";
-import '../assets/styles.scss'
+import '../assets/styles.scss';
 
 // 최초 렌더링
 router(window.location.pathname);
