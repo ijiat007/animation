@@ -21,7 +21,7 @@ export async function router(pathname) {
   }
 
   try {
-    const res = await fetch(`${pageFile.startsWith('home') ? '/animation/src/pages/' + pageFile : '/animation/src/pages/' + pageFile}`);
+    const res = await fetch(`/animation/src/pages/${pageFile}`);
     const html = await res.text();
     document.querySelector("#app").innerHTML = html;
   } catch (err) {
