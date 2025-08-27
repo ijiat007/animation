@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-  base: '/animation/',
+  base: '/',
   resolve: {
     alias: {
       // "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -15,7 +15,6 @@ export default defineConfig({
         additionalData: `
           @use "variables" as *;
           @use "mixin" as *;
-          @use "styles" as *;
         `,
       },
     },

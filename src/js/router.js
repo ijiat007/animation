@@ -13,21 +13,15 @@ export function router(path) {
   document.querySelector("#page-content").innerHTML = view;
 }
 
+// const routes = {
+//   "/": './pages/home.html',
+//   "/about": './pages/about.html',
+//   "/contact": './pages/contact.html',
+// };
 
 // export async function router(path) {
 //   const url = routes[path] || routes["/"];
 //   const res = await fetch(url);
 //   const view = await res.text();
 //   document.querySelector("#page-content").innerHTML = view;
-// }
-
-  // 페이지별 SCSS import (Vite가 CSS로 변환)
-//   switch (path) {
-//     case "/":
-//       import('../pages/home.scss');
-//       break;
-//     case "/about":
-//       import('../pages/about.scss');
-//       break;
-//   }
 // }
