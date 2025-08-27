@@ -12,9 +12,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        includePaths: [path.resolve(__dirname, 'src/assets')],
         additionalData: `
-          @use "@/assets/variables.scss" as *;
-          @use "@/assets/mixin.scss" as *;
+          @use "variables" as *;
+          @use "mixin" as *;
         `,
       },
     },
