@@ -1,12 +1,13 @@
-import '../assets/styles.scss';
+import "../assets/styles.scss"; // SCSS import → Vite가 CSS로 번들링
 
+const BASE = "/animation"; // GitHub Pages repo base
 const app = document.querySelector("#app");
 
-// GitHub Pages 배포 시 base 포함 경로
-const BASE = "/animation";
-
-// home.html fetch 후 렌더링
+// 초기화 후 home.html 로드
 async function loadHome() {
+  if (!app) return;
+  app.innerHTML = ""; // 기존 내용 제거
+
   try {
     const res = await fetch(`${BASE}/src/pages/home.html`);
     const html = await res.text();
@@ -17,5 +18,5 @@ async function loadHome() {
   }
 }
 
-// 초기 페이지 로드
-loadHome();
+// DOMContentLoaded에서 실행
+document.addEventListener("DOMContentLoaded", loadHome);
