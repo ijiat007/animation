@@ -8,18 +8,18 @@ const routes = {
   "/contact": contact,
 };
 
-// export function router(path) {
-//   const view = routes[path] || routes["/"];
-//   document.querySelector("#page-content").innerHTML = view;
-// }
-
-
-export async function router(path) {
-  const url = routes[path] || routes["/"];
-  const res = await fetch(url);
-  const view = await res.text();
+export function router(path) {
+  const view = routes[path] || routes["/"];
   document.querySelector("#page-content").innerHTML = view;
 }
+
+
+// export async function router(path) {
+//   const url = routes[path] || routes["/"];
+//   const res = await fetch(url);
+//   const view = await res.text();
+//   document.querySelector("#page-content").innerHTML = view;
+// }
 
   // 페이지별 SCSS import (Vite가 CSS로 변환)
 //   switch (path) {
