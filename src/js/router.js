@@ -1,27 +1,26 @@
-import home from "../pages/home.html?raw";
-import about from "../pages/about.html?raw";
-import contact from "../pages/contact.html?raw";
+const base = "/animation";
 
-const routes = {
-  "/": home,
-  "/about": about,
-  "/contact": contact,
-};
+export async function router(pathname) {
+  const cleanPath = pathname.replace(base, "") || "/";
 
-export function router(path) {
-  const view = routes[path] || routes["/"];
-  document.querySelector("#page-content").innerHTML = view;
+  let pageFile = "";
+  switch (cleanPath) {
+    case "/":
+      pageFile = "home.html";
+      break;
+    case "/about":
+      pageFile = "about.html";
+      break;
+    case "/contact":
+      pageFile = "contact.html";
+      break;
+    default:
+      document.querySelector("#container").innerHTML = "<h1>404 Not Found</h1>";
+      return;
+  }
+
+  // fetch 시 base 포함해서 호출
+  const res = await fetch(`${base}/src/pages/${pageFile}`);
+  const html = await res.text();
+  document.querySelector("#container").innerHTML = html;
 }
-
-// const routes = {
-//   "/": './pages/home.html',
-//   "/about": './pages/about.html',
-//   "/contact": './pages/contact.html',
-// };
-
-// export async function router(path) {
-//   const url = routes[path] || routes["/"];
-//   const res = await fetch(url);
-//   const view = await res.text();
-//   document.querySelector("#page-content").innerHTML = view;
-// }
