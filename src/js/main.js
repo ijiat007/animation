@@ -1,22 +1,18 @@
-import "../assets/styles.scss"; // SCSS import → Vite가 CSS로 번들링
+import "../assets/styles.scss";
 
-const BASE = "/animation"; // GitHub Pages repo base
 const app = document.querySelector("#app");
 
-// 초기화 후 home.html 로드
-async function loadHome() {
-  if (!app) return;
-  app.innerHTML = ""; // 기존 내용 제거
+app.innerHTML = `
+  <header>
+    <h1>Animation Home</h1>
+  </header>
 
-  try {
-    const res = await fetch(`${BASE}/src/pages/home.html`);
-    const html = await res.text();
-    app.innerHTML = html;
-  } catch (err) {
-    console.error("Failed to load home.html:", err);
-    app.innerHTML = "<h1>Failed to load page</h1>";
-  }
-}
+  <main>
+    <h2>Home Page</h2>
+    <p>Welcome to the Home page!</p>
+  </main>
 
-// DOMContentLoaded에서 실행
-document.addEventListener("DOMContentLoaded", loadHome);
+  <footer>
+    <p>© 2025 Animation SPA</p>
+  </footer>
+`;
