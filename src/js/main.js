@@ -1,8 +1,8 @@
-import '../assets/styles.scss'
 
-import header from "@/components/header.html?raw";
-import footer from "@/components/footer.html?raw";
-import { router } from "@/js/router.js";
+import header from "../components/header.html?raw";
+import footer from "../components/footer.html?raw";
+import { router } from "./router.js";
+import '../assets/styles.scss'
 
 // layout
 document.querySelector("#app").innerHTML = `

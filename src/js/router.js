@@ -1,6 +1,6 @@
-import home from "@/pages/home.html?raw";
-import about from "@/pages/about.html?raw";
-import contact from "@/pages/contact.html?raw";
+import home from "../pages/home.html?raw";
+import about from "../pages/about.html?raw";
+import contact from "../pages/contact.html?raw";
 
 const routes = {
   "/": home,
