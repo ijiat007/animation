@@ -1,0 +1,15 @@
+// @use '@/assets/variables.scss' as *;
+
+@mixin breakpoint($target) {
+  @if $target == tb {
+    @media (min-width: #{$bp-tb}) {
+      @content;
+    }
+  } @else if $target == pc {
+    @media (min-width: #{$bp-pc}) {
+      @content;
+    }
+  } @else {
+    @warn "지원하지 않아!!";
+  }
+}
