@@ -1,9 +1,67 @@
 @use 'normalize.scss' as *;
 
 #app {
-  background: red;
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
 }
 
-h1 {
-	color: blue;
+.container {
+	flex: 1;
+	text-align: center;
+	color: #fff;
+
+	h2 {
+		margin: 10px 0;
+	}
+}
+
+footer {
+	flex: 0 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.card {
+	position: relative;
+	margin: 0 auto;
+	padding: 20px;
+	width: 300px;
+	background: #1c1f2b;
+	border-radius: 10px;
+
+	&::after, &::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: -1;
+		width: calc(100% + 10px);
+		height: calc(100% + 10px);
+		background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ee1992, #ff4545);
+		// background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+		transform: translate(-50%, -50%);
+		border-radius: 12px;
+		animation: 3s spin linear infinite;
+	}
+
+	&::before {
+		filter: blur(2rem);
+		opacity: .5;
+	}
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+	from {
+		--angle: 0deg;
+	}
+	to {
+		--angle: 360deg;
+	}
 }
