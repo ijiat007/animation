@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "sass": "sass --watch scss:css",
-    "deploy": "gh-pages -d dist"
+    "deploy": "yarn build && gh-pages -d dist --branch gh-pages --clean"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
